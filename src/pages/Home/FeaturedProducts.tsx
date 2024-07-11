@@ -1,7 +1,13 @@
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { useGetAllProductsQuery } from "../../redux/features/products/productApi";
 
 const FeaturedProducts = () => {
+  const {data: product, isLoading} = useGetAllProductsQuery(undefined)
+  if(isLoading){
+    console.log('loading....')
+  }
+  console.log(product)
   return (
     <div className=" mt-8">
       <div className="text-center">
