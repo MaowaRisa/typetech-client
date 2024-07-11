@@ -10,7 +10,7 @@ const MainLayout = () => {
             <Header style={{backgroundColor: "#fff"}}>
                 <Navbar></Navbar>
             </Header>
-            <Content style={{maxWidth: "1280px", margin: "auto"}}>
+            <Content style={{maxWidth: "1280px", minHeight: "71vh", margin: "auto"}}>
                 <Outlet></Outlet>
             </Content>
             <Footer style={{backgroundColor: "#2E1065", color:"White"}}>
