@@ -10,3 +10,8 @@
   color: #111827; /* Change text color on hover */
   background-color: #eae7f0;
 }
+.app-hero{
+    background-image: url('../src/assets/images/hero-back.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size:cover; /* Resize the background image to cover the entire container */
+}
