@@ -1,4 +1,13 @@
+import { TBrand } from "../../redux/features/brands/brandSlice";
+import Brand from "../../components/Brand/Brand";
+import { useGetAllBrandsQuery } from "../../redux/features/brands/brandApi";
+
 const FeaturedBrands = () => {
+  const { data: brands, isError } = useGetAllBrandsQuery({});
+  if (isError) {
+    console.log(isError);
+  }
+  console.log(brands?.data)
   return (
     <div className="my-8">
       <div className="mb-14">
@@ -10,21 +19,10 @@ const FeaturedBrands = () => {
           meets performance and style.
         </p>
       </div>
-      <div className="grid grid-col-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-        {/* brand 1 */}
-        <div className="flex flex-col justify-center items-center bg-gray-50 rounded-md">
-          <span className="bg-violet-900 shadow-md text-center p-4 border-4 border-white text-white font-bold -mt-7">
-            <img src="../../../src/assets/images/brand-1.png" alt="brand 1" />
-          </span>
-          <h2 className="font-semibold py-4">Test brand</h2>
-        </div>
-        {/* brand 1 */}
-        <div className="flex flex-col justify-center items-center bg-gray-50 rounded-md">
-          <span className="bg-violet-900 shadow-md text-center p-4 border-4 border-white text-white font-bold -mt-7">
-            <img src="../../../src/assets/images/brand2.png" alt="brand 2" />
-          </span>
-          <h2 className="font-semibold py-4">Test brand</h2>
-        </div>
+      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+        {
+          brands?.data.map((brand : TBrand) => <Brand key={brand.name} brand={brand}></Brand>)
+        }
       </div>
     </div>
   );
