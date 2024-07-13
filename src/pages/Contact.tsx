@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
+import { Button } from "antd";
 
 const Contact: React.FC = () => {
   const [isFormOpen, setFormOpen] = useState<boolean>(false);
@@ -19,7 +20,7 @@ const Contact: React.FC = () => {
         Get in Touch With Us
       </animated.h1>
       <animated.p
-        className="w-2/4 mx-auto text-center mb-6 text-gray-700"
+        className="md:w-2/4 mx-auto text-justify md:text-center mb-6 text-gray-700"
         style={useSpring({ opacity: 1, from: { opacity: 0 }, delay: 200 })}
       >
         If you have any questions, concerns, or feedback, we'd love to hear from
@@ -114,12 +115,9 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-violet-500"
                 ></textarea>
               </div>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-700 focus:outline-none"
-              >
+              <Button className=" bg-violet-900 text-white font-semibold p-6">
                 Send Message
-              </button>
+              </Button>
             </form>
           </animated.div>
         </div>

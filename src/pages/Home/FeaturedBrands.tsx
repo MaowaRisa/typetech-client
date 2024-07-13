@@ -7,7 +7,7 @@ const FeaturedBrands = () => {
   if (isError) {
     console.log(isError);
   }
-  console.log(brands?.data)
+  console.log(brands?.data);
   return (
     <div className="my-8">
       <div className="mb-14">
@@ -20,9 +20,15 @@ const FeaturedBrands = () => {
         </p>
       </div>
       <div className="grid grid-cols-3 md:grid-cols-6 px-4 md:px-0 lg:grid-cols-8 gap-4">
-        {
-          brands?.data.map((brand : TBrand) => <Brand key={brand.name} brand={brand}></Brand>)
-        }
+        {brands?.data ? (
+          brands?.data.map((brand: TBrand) => (
+            <Brand key={brand.name} brand={brand}></Brand>
+          ))
+        ) : (
+          <div className="text-center">
+            <span className="text-violet-500 font-semibold text-5xl loading loading-ring loading-lg"></span>
+          </div>
+        )}
       </div>
     </div>
   );

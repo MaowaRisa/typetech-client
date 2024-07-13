@@ -19,12 +19,17 @@ const FeaturedProducts = () => {
           ultimate typing experience.
         </p>
       </div>
-      <div className="grid  grid-col-1 md:grid-cols-3 px-4 md:px-0 gap-4">
+      <div className="grid  grid-col-1 md:grid-cols-3 px-4 md:px-0 gap-4 ">
         {products?.data ? (
-          products?.data.map((product:TProduct) => <Product key={`${product.name}-${product.price}`} product={product}></Product>)
+          products?.data.map((product: TProduct) => (
+            <Product
+              key={`${product.name}-${product.price}`}
+              product={product}
+            ></Product>
+          ))
         ) : (
-          <div>
-            <span className="loading loading-ring loading-lg"></span>
+          <div className="text-center">
+            <span className="text-violet-500 font-semibold text-5xl loading loading-ring loading-lg"></span>
           </div>
         )}
         {/* card 1 */}

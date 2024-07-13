@@ -14,7 +14,7 @@ const Products = () => {
     console.log(isError);
   }
   return (
-    <div className=" mt-8">
+    <div className="mt-8 px-4 md:px-0">
       <div className="text-center">
         <h2 className="text-3xl font-semibold text-gray-900 mb-4 ">
           TypeTech's products
@@ -25,7 +25,7 @@ const Products = () => {
           ultimate typing experience.
         </p>
       </div>
-      <div className="flex justify-end gap-4">
+      <div className="flex justify-end gap-4 mt-4 ">
         <label className="input input-bordered flex items-center gap-2">
           <input type="text" className="grow" placeholder="Search" />
           <svg
