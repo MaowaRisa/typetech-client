@@ -22,7 +22,7 @@ const Hero = () => {
             our best-selling or featured mechanical keyboards.
           </p>
           <Button
-            className="btn-primary p-6"
+            className="btn-primary p-6 font-semibold"
             style={{
               backgroundColor: "#2E1065",
               color: "#fff",

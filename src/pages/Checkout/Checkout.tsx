@@ -3,7 +3,7 @@ import { Button } from "antd";
 
 const Checkout = () => {
   return (
-    <div className="flex gap-4 my-10">
+    <div className="container flex gap-4 my-10">
       {/* user info */}
       <div className="w-1/2">
         <h2 className="text-xl my-4">Contact information</h2>

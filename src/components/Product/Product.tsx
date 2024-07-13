@@ -4,11 +4,11 @@ import { useAppDispatch } from "../../redux/hook";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 const Product = ({ product }: { product: TProduct }) => {
-    const dispatch = useAppDispatch();
-    const handleAddToCart = (product :TProduct) => {
-        dispatch(addToCart(product));
-        // history.push("/cart");
-      };
+  const dispatch = useAppDispatch();
+  const handleAddToCart = (product: TProduct) => {
+    dispatch(addToCart(product));
+    // history.push("/cart");
+  };
   return (
     <div className="card shadow-md hover:bg-violet-50 mt-8 p-4">
       <figure className="w-full h-48 overflow-hidden flex justify-center items-center bg-gray-100 rounded-xl">
@@ -21,7 +21,9 @@ const Product = ({ product }: { product: TProduct }) => {
       <div className="mt-4 space-y-1 flex flex-col gap-2 justify-between">
         <div>
           <h2 className="text-lg font-semibold">{product.name}</h2>
-          <p className="text-gray-600">{product.description.slice(0,100)}...</p>
+          <p className="text-gray-600">
+            {product.description.slice(0, 100)}...
+          </p>
         </div>
         <div className="flex flex-col gap-2">
           <div>
@@ -66,7 +68,9 @@ const Product = ({ product }: { product: TProduct }) => {
               }}
               onClick={() => handleAddToCart(product)}
             >
-              <ShoppingCartOutlined style={{ fontSize: '1.5rem', color: '#fff', font:"bold"}}/>
+              <ShoppingCartOutlined
+                style={{ fontSize: "1.5rem", color: "#fff", font: "bold" }}
+              />
             </Button>
           </div>
         </div>

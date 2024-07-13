@@ -7,14 +7,11 @@
   font-family: sans-serif;
 }
 .navbar a:hover {
-  color: #111827; /* Change text color on hover */
-  background-color: #eae7f0;
+  color: #111827; 
+  background-color: white;
+  font-weight: bold;
 }
-.app-hero{
-    background-image: url('../src/assets/images/hero-back.png');
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size:cover; /* Resize the background image to cover the entire container */
-}
+
 /* Custom CSS for the select dropdown and options */
 .custom-select {
   background-color: white;

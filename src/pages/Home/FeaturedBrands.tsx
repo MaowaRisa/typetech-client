@@ -7,7 +7,7 @@ const FeaturedBrands = () => {
   if (isError) {
     console.log(isError);
   }
-  console.log(brands?.data);
+  // console.log(brands?.data);
   return (
     <div className="my-8">
       <div className="mb-14">
