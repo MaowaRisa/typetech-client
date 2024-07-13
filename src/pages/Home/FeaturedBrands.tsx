@@ -19,7 +19,7 @@ const FeaturedBrands = () => {
           meets performance and style.
         </p>
       </div>
-      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+      <div className="grid grid-cols-3 md:grid-cols-6 px-4 md:px-0 lg:grid-cols-8 gap-4">
         {
           brands?.data.map((brand : TBrand) => <Brand key={brand.name} brand={brand}></Brand>)
         }

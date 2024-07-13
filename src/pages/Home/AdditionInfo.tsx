@@ -1,15 +1,16 @@
 import { CheckOutlined } from "@ant-design/icons";
-
+import additional1 from '../../../src/assets/images/addition-1.jpg';
+import additional2 from '../../../src/assets/images/addition2.jpg';
 const AdditionInfo = () => {
   return (
-    <div className="my-10">
+    <div className="my-10 px-4 md:px-0">
       <section className="">
         <h2 className="text-center text-3xl font-semibold text-gray-900 my-4">
           Why Choose Mechanical Keyboards?
         </h2>
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="w-1/2 p-2 border-2 shadow-xl border-gray-100">
-            <img className="rounded-xl" src="../../../src/assets/images/addition-1.jpg" alt="" />
+          <div className="md:w-1/2 p-2 border-2 shadow-xl border-gray-100">
+            <img className="rounded-xl" src={additional1} alt="addition 1" />
           </div>
           <div className="flex flex-col gap-4 justify-center items-center">
             <div className="">
@@ -53,8 +54,8 @@ const AdditionInfo = () => {
           Customized your keyboard?
         </h2>
         <div className="flex flex-col md:flex-row-reverse gap-8">
-          <div className="w-1/2 p-2 border-2 shadow-xl border-gray-100">
-            <img className="rounded-xl" src="../../../src/assets/images/addition2.jpg" alt="" />
+          <div className="md:w-1/2 p-2 border-2 shadow-xl border-gray-100">
+            <img className="rounded-xl" src={additional2} alt="addition 2" />
           </div>
           <div className="flex flex-col gap-4 justify-center items-center">
             <div className="">

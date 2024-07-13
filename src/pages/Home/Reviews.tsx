@@ -29,9 +29,9 @@ const Reviews = () => {
           Review us
         </Button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-0 lg:grid-cols-3 ">
         {/* review 1 */}
-        <div className="border-2 border-gray-200 text-center">
+        <div className="border-2 border-gray-200 text-center rounded-lg p-4">
           <div className="text-center p-4">
             <span className="bg-gray-200 p-2 text-violet-800 font-semibold">
               MM

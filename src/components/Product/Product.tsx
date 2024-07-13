@@ -21,7 +21,7 @@ const Product = ({ product }: { product: TProduct }) => {
       <div className="mt-4 space-y-1 flex flex-col gap-2 justify-between">
         <div>
           <h2 className="text-lg font-semibold">{product.name}</h2>
-          <p className="text-gray-600">{product.description.slice(0,50)}...</p>
+          <p className="text-gray-600">{product.description.slice(0,100)}...</p>
         </div>
         <div className="flex flex-col gap-2">
           <div>

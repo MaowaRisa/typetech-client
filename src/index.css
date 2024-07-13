@@ -15,3 +15,17 @@
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size:cover; /* Resize the background image to cover the entire container */
 }
+/* Custom CSS for the select dropdown and options */
+.custom-select {
+  background-color: white;
+}
+
+.custom-select option {
+  background-color: white;
+  color: black;
+}
+
+/* Optional: Add hover effect */
+.custom-select option:hover {
+  background-color: #f3f4f6; /* Light gray background on hover */
+}

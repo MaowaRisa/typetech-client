@@ -2,7 +2,7 @@ import { CarOutlined, MoneyCollectOutlined, PhoneOutlined, SettingOutlined } fro
 
 const Services = () => {
   return (
-    <div className="grid grid-cols-4 mt-8 cursor-pointer gap-4">
+    <div className="grid px-4 md:p-0 md:grid-cols-4 mt-8 cursor-pointer gap-4">
       {/* Card 1 */}
       <div className="p-4 text-center border-2 border-[#cfd1d4] rounded-2xl space-y-2">
         <SettingOutlined style={{fontSize: "45px", color:"#9788b2"}}/>
