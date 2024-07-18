@@ -18,6 +18,7 @@ const Reviews = () => {
           <StarOutlined style={{ color: "gold", fontSize: "24px" }} />
           <StarOutlined style={{ color: "gold", fontSize: "24px" }} />
           <StarOutlined style={{ color: "gray", fontSize: "24px" }} />
+        
         </div>
         <Button
           className="btn-primary p-6 mt-2"
@@ -45,6 +46,7 @@ const Reviews = () => {
             <StarOutlined style={{ color: "gold", fontSize: "24px" }} />
             <StarOutlined style={{ color: "gold", fontSize: "24px" }} />
             <StarOutlined style={{ color: "gray", fontSize: "24px" }} />
+            
           </div>
           <p className="text-gray-600 px-4">
             Absolutely thrilled with my new mechanical keyboard from Keychron!

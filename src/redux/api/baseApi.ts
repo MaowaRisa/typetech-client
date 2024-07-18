@@ -6,4 +6,5 @@ export const baseApi = createApi({
   // baseQuery: fetchBaseQuery({ baseUrl: "https://typetech-server.vercel.app/api/" }),
   baseQuery: fetchBaseQuery({ baseUrl: "https://typetech-server.vercel.app/api/" }),
   endpoints: () => ({}),
+  tagTypes: ['products']
 });

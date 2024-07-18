@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export type TProduct = {
     _id: string;
     name: string;
-    brand: {
-        name:string
-    };
+    slug: string;
+    brand: string;
     quantity: number;
     price: number;
     rating: number;

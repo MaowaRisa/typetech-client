@@ -1,115 +1,62 @@
+import { useAppSelector } from "../../redux/hook";
+import CheckoutForm from "../../components/form/CheckoutForm";
 import { CloseOutlined } from "@ant-design/icons";
+import PricingDetails from "../../components/PricingDetails/PricingDetails";
+import { Link } from "react-router-dom";
 import { Button } from "antd";
 
 const Checkout = () => {
+  const cart = useAppSelector((state) => state.cart);
   return (
-    <div className="container flex gap-4 my-10">
-      {/* user info */}
-      <div className="w-1/2">
-        <h2 className="text-xl my-4">Contact information</h2>
-        <hr className="my-4" />
-        <div className="flex flex-col">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            className="w-full border-2 border-gray-200 py-2 rounded-md"
-            required
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            className="w-full border-2 border-gray-200 py-2 rounded-md"
-            required
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="phoneNo">Contact No</label>
-          <input
-            type="text"
-            id="phoneNo"
-            name="phoneNo"
-            className="w-full border-2 border-gray-200 py-2 rounded-md"
-            required
-          />
-        </div>
-      </div>
-      {/* order summary */}
-      <div className="w-1/2 border-2 border-gray-200 p-6">
-        {/* products */}
-        <div className="flex flex-col">
-          {/* product 1 */}
-          <div className="flex justify-between border-b-2 py-2">
-            <div className="w-[100px]">
-              <img
-                src="../../../src/assets/images/keyboard-1.jpg"
-                alt="key 1"
-              />
-            </div>
-            <div>
-              <h2 className="text-lg">Product name</h2>
-              <p className="text-md text-gray-700">Brand</p>
-              <p className="font-semibold">$120</p>
-            </div>
-            <div>
-              <input type="number" min={1} defaultValue={1} />
-            </div>
-            <span>
-              <CloseOutlined />
-            </span>
+    <>
+      {cart.products.length !== 0 ? (
+        <div className="container flex flex-col gap-4 md:flex-row p-4 mx-auto my-10 text-gray-500">
+          {/* order summary */}
+          <div className="md:w-1/2 border-2 border-gray-200 p-6">
+            {cart.products &&
+              cart.products.map((cartItem) => (
+                <div className="flex justify-around border-b-2 py-2">
+                  <div className="w-1/4">
+                    <img src={cartItem.image} alt={cartItem.name} />
+                  </div>
+                  <div>
+                    <h2 className="text-lg">{cartItem.name}</h2>
+                    <p className="text-md text-gray-700">{cartItem.brand}</p>
+                    <p className="font-semibold">${cartItem.price}</p>
+                  </div>
+                  <div>
+                    <p>{cartItem.quantity}</p>
+                  </div>
+                  <span>
+                    <CloseOutlined />
+                  </span>
+                </div>
+              ))}
+            {/* products */}
+            <PricingDetails></PricingDetails>
           </div>
-          {/* product 1 */}
-          <div className="flex justify-between border-b-2 py-2">
-            <div className="w-[100px]">
-              <img
-                src="../../../src/assets/images/keyboard-1.jpg"
-                alt="key 1"
-              />
-            </div>
-            <div>
-              <h2 className="text-lg">Product name</h2>
-              <p className="text-md text-gray-700">Brand</p>
-              <p className="font-semibold">$120</p>
-            </div>
-            <div>
-              <input type="number" min={1} defaultValue={1} />
-            </div>
-            <span>
-              <CloseOutlined />
-            </span>
-          </div>
-          <div className=" md:w-full py-2">
-            <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-            <div className="flex justify-between py-4 border-b-2 border-gray-200">
-              <p>Subtotal</p>
-              <p>$99.00</p>
-            </div>
-            <div className="flex justify-between py-4 border-b-2 border-gray-200">
-              <p>Shipping charge</p>
-              <p>$99.00</p>
-            </div>
-            <div className="flex justify-between py-4 border-b-2 border-gray-200">
-              <p>Tax estimate</p>
-              <p>$99.00</p>
-            </div>
-            <div className="flex justify-between py-4">
-              <p>Order total</p>
-              <p>$99.00</p>
-            </div>
-            <div className="text-right">
-              <Button className="w-1/3 bg-violet-900 text-white font-semibold p-6">
-                Pay now
+          {/* user info */}
+          <CheckoutForm></CheckoutForm>
+        </div>
+      ):(
+        <div className="cart-empty flex flex-col justify-center items-center my-8">
+          <p>Your cart is currently empty</p>
+          <div className="start-shopping">
+            <Link to="/">
+              <Button
+                className="btn-primary p-6 font-semibold"
+                style={{
+                  backgroundColor: "#2E1065",
+                  color: "#fff",
+                }}
+              >
+                Start Shopping
               </Button>
-            </div>
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

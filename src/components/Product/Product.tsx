@@ -1,14 +1,16 @@
-import { addToCart } from "../../redux/features/cart/cartSlice";
+import { Link, useLocation } from "react-router-dom";
 import { TProduct } from "../../redux/features/products/productSlice";
-import { useAppDispatch } from "../../redux/hook";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+
+import { StarOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 const Product = ({ product }: { product: TProduct }) => {
-  const dispatch = useAppDispatch();
-  const handleAddToCart = (product: TProduct) => {
-    dispatch(addToCart(product));
-    // history.push("/cart");
-  };
+  const location = useLocation();
+  const isHomePage = location.pathname === "/" || location.pathname === "/home";
+
+  // absolute paths for products
+  const productLink = isHomePage
+    ? `/products/${product._id}`
+    : `${product._id}`;
   return (
     <div className="card shadow-md hover:bg-violet-50 mt-8 p-4">
       <figure className="w-full h-48 overflow-hidden flex justify-center items-center bg-gray-100 rounded-xl">
@@ -18,24 +20,49 @@ const Product = ({ product }: { product: TProduct }) => {
           className="object-cover w-full h-full rounded-xl"
         />
       </figure>
-      <div className="mt-4 space-y-1 flex flex-col gap-2 justify-between">
-        <div>
+      <div className="mt-4 space-y-1 flex flex-col gap-1 justify-between">
+        <div className="">
           <h2 className="text-lg font-semibold">{product.name}</h2>
-          <p className="text-gray-600">
-            {product.description.slice(0, 100)}...
-          </p>
+        </div>
+        <div>
+          {product?.rating !== undefined ? (
+            (() => {
+              let count = 5;
+              const arr = [];
+              for (let i = 0; i < product?.rating; i++) {
+                arr.push(
+                  <StarOutlined style={{ color: "gold", fontSize: "16px" }} />
+                );
+                count--;
+              }
+      
+              if (count > 0) {
+                for (let i = 0; i < count; i++) {
+                  arr.push(
+                    <StarOutlined style={{ color: "gray", fontSize: "16px" }} />
+                  );
+                }
+              }
+              return arr;
+            })()
+          ) : (
+            <p>Something error</p>
+          )}
+          ({product?.rating})
         </div>
         <div className="flex flex-col gap-2">
-          <div>
+          <h2 className="text-sm font-semibold">
+            Brand: <span className="font-normal">{product.brand}</span>
+          </h2>
+          <div className="flex justify-between">
             <h2 className="text-sm font-semibold">
-              Brand: <span className="font-normal">{product.brand.name}</span>
+              Price: <span className="font-normal">{`$${product.price}`}</span>
+            </h2>
+            <h2 className="text-sm font-semibold">
+              In Stock: <span className="font-normal">{product.quantity}</span>
             </h2>
           </div>
-          <div className="flex justify-between items-center">
-            <div>
-              <span className="font-normal">{`$ ${product.price}`}</span>
-            </div>
-            {/* <div>
+          {/* <div>
               <div className="flex gap-2 justify-center items-center">
                 <span className="bg-white p-1 rounded-lg cursor-pointer border-2 border-violet-200">
                   <MinusOutlined style={{ font: "bold" }} />
@@ -49,29 +76,19 @@ const Product = ({ product }: { product: TProduct }) => {
                 </span>
               </div>
             </div> */}
-          </div>
+
           <div className="flex justify-end gap-2">
-            <Button
-              className="btn-primary p-5 mt-4"
-              style={{
-                backgroundColor: "#fff",
-                color: "#111827",
-              }}
-            >
-              View
-            </Button>
-            <Button
-              className="btn-primary p-5 mt-4"
-              style={{
-                backgroundColor: "#2E1065",
-                color: "#fff",
-              }}
-              onClick={() => handleAddToCart(product)}
-            >
-              <ShoppingCartOutlined
-                style={{ fontSize: "1.5rem", color: "#fff", font: "bold" }}
-              />
-            </Button>
+            <Link to={productLink}>
+              <Button
+                className="btn-primary p-5 mt-4"
+                style={{
+                  backgroundColor: "#2E1065",
+                  color: "#fff",
+                }}
+              >
+                Show Details
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

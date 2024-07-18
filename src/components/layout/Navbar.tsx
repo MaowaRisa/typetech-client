@@ -91,7 +91,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <Link to="/cart">
         <span className="font-semibold text-red-400">
-          {cart.cartItems.length === 0 ? 0 : cart.cartItems.length}
+          {cart.products.length === 0 ? 0 : cart.products.length}
         </span>
         <ShoppingCartOutlined
           style={{
